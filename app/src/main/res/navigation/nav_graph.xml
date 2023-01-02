@@ -15,4 +15,9 @@
         android:name="com.zrq.player.ui.PlayerFragment"
         android:label="fragment_player"
         tools:layout="@layout/fragment_player" />
+    <fragment
+        android:id="@+id/regionItemFragment"
+        android:name="com.zrq.player.ui.RegionItemFragment"
+        android:label="fragment_region_item"
+        tools:layout="@layout/fragment_region_item" />
 </navigation>

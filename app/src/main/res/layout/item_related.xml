@@ -1,25 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivCover"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        app:shapeAppearance="@style/circle_img_5" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:maxLines="2"
-        android:text="@string/title"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:layout_margin="10dp">
 
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCover"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/circle_img_10" />
+
+
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/shape_tv_time"
+            android:padding="1dp"
+            android:text="@string/_00_00"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivCover"
+            app:layout_constraintEnd_toEndOf="@id/ivCover"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:lines="2"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivCover"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/shape_tv_up"
+            android:letterSpacing="0.1"
+            android:padding="1dp"
+            android:text="@string/up"
+            android:textColor="@color/_grey"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/ivPlayNum"
+            app:layout_constraintStart_toEndOf="@id/ivCover"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/tvUpName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="1dp"
+            android:textColor="@color/_grey"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/ivPlayNum"
+            app:layout_constraintStart_toEndOf="@id/tvUp" />
+
+        <ImageView
+            android:id="@+id/ivPlayNum"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_live_tv_24"
+            app:layout_constraintBottom_toBottomOf="@id/ivCover"
+            app:layout_constraintStart_toEndOf="@id/ivCover"
+            app:tint="@color/_grey" />
+
+        <TextView
+            android:id="@+id/tvPlayNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/_grey"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivPlayNum"
+            app:layout_constraintStart_toEndOf="@id/ivPlayNum" />
+
+        <ImageView
+            android:id="@+id/ivDanMu"
+            android:layout_width="20dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_wysiwyg_24"
+            app:layout_constraintBottom_toBottomOf="@id/ivPlayNum"
+            app:layout_constraintStart_toEndOf="@id/tvPlayNum"
+            app:tint="@color/_grey" />
+
+        <TextView
+            android:id="@+id/tvDanMu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/_grey"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivPlayNum"
+            app:layout_constraintStart_toEndOf="@id/ivDanMu" />
+
+        <ImageView
+            android:id="@+id/ivSetting"
+            android:layout_width="26dp"
+            android:layout_height="18dp"
+            android:paddingHorizontal="4dp"
+            android:src="@drawable/ic_baseline_more_vert_24"
+            app:layout_constraintBottom_toBottomOf="@id/ivPlayNum"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/_grey" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/___grey"
+        app:layout_constraintTop_toTopOf="parent" />
 </LinearLayout>

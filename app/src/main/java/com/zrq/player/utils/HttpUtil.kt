@@ -18,7 +18,7 @@ object HttpUtil {
     }
 
     fun httpGet(url: String, callback: (Boolean, String) -> Unit) {
-        Log.d(TAG, "loadPopular: $url")
+        Log.d(TAG, "load: $url")
         val request = Request.Builder()
             .url(url)
             .get()

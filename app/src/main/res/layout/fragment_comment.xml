@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.CommentFragment">
+
+    <TextView
+        android:id="@+id/tvComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/comment"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_baseline_menu_24"
+        app:layout_constraintEnd_toStartOf="@id/tvCommentType"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/_grey" />
+
+    <TextView
+        android:id="@+id/tvCommentType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/comment_type"
+        android:textColor="@color/_grey"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/llBottom"
+        app:layout_constraintTop_toBottomOf="@id/tvComment"
+        tools:listitem="@layout/item_comment" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/___grey"
+        app:layout_constraintBottom_toTopOf="@id/llBottom" />
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tvSendComment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_et_send_comment"
+            android:padding="6dp"
+            android:text="@string/send_comment"
+            android:textColor="@color/_grey"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/ivFace"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:src="@drawable/ic_baseline_sentiment_satisfied_24"
+            app:tint="@color/_grey" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

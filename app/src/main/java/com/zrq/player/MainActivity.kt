@@ -2,7 +2,6 @@ package com.zrq.player
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import androidx.lifecycle.ViewModelProvider
 import com.zrq.player.databinding.ActivityMainBinding
@@ -20,9 +19,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mainModel: MainModel
 
+
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            mainModel.onBackListener()
+            mainModel.onBackPress()
         }
         return super.onKeyDown(keyCode, event)
     }

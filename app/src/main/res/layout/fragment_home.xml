@@ -7,17 +7,77 @@
     android:orientation="vertical"
     tools:context=".ui.HomeFragment">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="?attr/mainColor"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="30dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@color/white"
+            app:shapeAppearance="@style/circle_img" />
+
+        <TextView
+            android:id="@+id/tvSearch"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_et_search"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp"
+            android:text="@string/string"
+            android:textColor="@color/_grey"
+            app:drawableStartCompat="@drawable/ic_baseline_search_24"
+            app:drawableTint="@color/_grey" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_outline_markunread_24"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/item_popular" />
+        android:layout_height="wrap_content"
+        android:background="?attr/mainColor"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_select_region"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:foreground="@drawable/pressed_background_white"
+            android:padding="6dp"
+            android:src="@drawable/ic_baseline_notes_24"
+            app:tint="@color/white" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorHeight="4dp"
+            app:tabMaxWidth="100dp"
+            app:tabMinWidth="60dp"
+            app:tabMode="scrollable"
+            app:tabRippleColor="@color/white"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/_white" />
+
+    </LinearLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

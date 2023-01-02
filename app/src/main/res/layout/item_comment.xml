@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivFace"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:shapeAppearance="@style/circle_img" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUpName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/_grey"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvUpDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/_grey"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/tvCommentInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="6dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivLike"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_outline_thumb_up_24"
+                    app:tint="@color/_grey" />
+
+                <TextView
+                    android:id="@+id/tvLikeNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/_grey"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/ivDislike"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="4dp"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_outline_thumb_down_24"
+                    app:tint="@color/_grey" />
+
+                <ImageView
+                    android:id="@+id/ivReply"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_margin="4dp"
+                    android:padding="4dp"
+                    android:rotationY="180"
+                    android:src="@drawable/ic_round_reply_24"
+                    app:tint="@color/_grey" />
+
+                <ImageView
+                    android:id="@+id/ivComment"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="4dp"
+                    android:padding="4dp"
+                    android:rotationY="180"
+                    android:src="@drawable/ic_outline_mode_comment_24"
+                    app:tint="@color/_grey" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/___grey" />
+
+</LinearLayout>

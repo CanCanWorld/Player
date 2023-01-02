@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.zrq.player.bean.RelateDao
 import com.zrq.player.bean.Related
 import com.zrq.player.databinding.ItemRelatedBinding
+import com.zrq.player.utils.CalculationUtils
 
 class RelatedAdapter(
     private val context: Context,
-    private val list: MutableList<Related.DataDTO>,
+    private val list: MutableList<RelateDao>,
     private val onItemClickListener: (View, Int) -> Unit
 ) : RecyclerView.Adapter<VH<ItemRelatedBinding>>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH<ItemRelatedBinding> {
@@ -28,6 +30,10 @@ class RelatedAdapter(
             root.setOnClickListener {
                 onItemClickListener(it, position)
             }
+            tvUpName.text = bean.owner.name
+            tvPlayNum.text = CalculationUtils.formatNum(bean.stat.view)
+            tvDanMu.text = CalculationUtils.formatNum(bean.stat.danmaku)
+            tvDuration.text = CalculationUtils.formatDuration(bean.duration)
         }
     }
 

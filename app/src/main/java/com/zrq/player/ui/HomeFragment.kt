@@ -1,59 +1,41 @@
 package com.zrq.player.ui
 
-import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.Navigation
-import com.google.gson.Gson
+import com.google.android.material.tabs.TabLayoutMediator
 import com.zrq.player.R
-import com.zrq.player.adapter.PopularAdapter
-import com.zrq.player.bean.Popular
-import com.zrq.player.bean.Video
+import com.zrq.player.adapter.PartitionAdapter
 import com.zrq.player.databinding.FragmentHomeBinding
-import com.zrq.player.utils.Constants.BASE_URL
-import com.zrq.player.utils.Constants.POPULAR
-import com.zrq.player.utils.HttpUtil.httpGet
+import com.zrq.player.utils.Constants
+
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun providedViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentHomeBinding {
         return FragmentHomeBinding.inflate(inflater, container, false)
     }
 
-    private val list = mutableListOf<Popular.DataDTO.ListDTO>()
-    private lateinit var adapter: PopularAdapter
+
+    private lateinit var adapter: PartitionAdapter
 
     override fun initData() {
-        loadPopular()
-        adapter = PopularAdapter(requireContext(), list) { _, position ->
-            val bean = list[position]
-            mainModel.videos.push(Video(bean.title, bean.bvid, bean.cid))
-            Navigation.findNavController(requireActivity(), R.id.fragment_container)
-                .navigate(R.id.playerFragment)
-        }
+        adapter = PartitionAdapter(requireActivity(), Constants.regions)
         mBinding.apply {
-            recyclerView.adapter = adapter
-        }
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    private fun loadPopular() {
-        val url = "$BASE_URL$POPULAR"
-        httpGet(url) { success, msg ->
-            if (success) {
-                Log.d(TAG, "loadPopular: $msg")
-                val popular = Gson().fromJson(msg, Popular::class.java)
-                list.clear()
-                list.addAll(popular.data.list)
-                adapter.notifyDataSetChanged()
-            } else {
-                Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
-            }
+            viewPager.offscreenPageLimit = 6
+            viewPager.adapter = adapter
+            TabLayoutMediator(tabLayout, viewPager, true) { tab, position ->
+                tab.text = Constants.regions[position].title
+            }.attach()
         }
     }
 
     override fun initEvent() {
+        mBinding.apply {
+            ivSelectRegion.setOnClickListener {
+                Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                    .navigate(R.id.regionItemFragment)
+            }
+        }
     }
 
     companion object {
