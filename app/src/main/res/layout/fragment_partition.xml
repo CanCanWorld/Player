@@ -6,12 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".ui.PartitionFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/item_video" />
+        app:srlAccentColor="?attr/mainColor"
+        app:srlPrimaryColor="?attr/mainColor">
 
+        <com.scwang.smart.refresh.header.MaterialHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mhPrimaryColor="?attr/mainColor" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/item_video" />
+
+        <com.scwang.smart.refresh.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 </FrameLayout>

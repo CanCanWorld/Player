@@ -33,6 +33,8 @@ public class RelateDao {
     private String rcmd_reason;
     private String pub_location;
     private int season_id;
+    private boolean dismiss = false;
+    private String banType = "";
 
     public int getAid() {
         return aid;
@@ -264,6 +266,22 @@ public class RelateDao {
 
     public void setSeason_id(int season_id) {
         this.season_id = season_id;
+    }
+
+    public boolean isDismiss() {
+        return dismiss;
+    }
+
+    public void setDismiss(boolean dismiss) {
+        this.dismiss = dismiss;
+    }
+
+    public String getBanType() {
+        return banType;
+    }
+
+    public void setBanType(String banType) {
+        this.banType = banType;
     }
 
     public static class RightsBean {

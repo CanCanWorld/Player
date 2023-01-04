@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="circle_img">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
     <style name="circle_img_5">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5%</item>
     </style>
+
     <style name="circle_img_10">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">10%</item>
     </style>
+
     <style name="tvTab">
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="tvSettingCell">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/shape_setting</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">14sp</item>
     </style>
 </resources>

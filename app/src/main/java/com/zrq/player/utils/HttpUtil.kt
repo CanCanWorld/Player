@@ -26,20 +26,46 @@ object HttpUtil {
         val call = okHttpClient.newCall(request)
         call.enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Handler(Looper.getMainLooper()).post {
-                    callback(false, "flag: 2")
-                }
+                callback(false, "flag: 2")
             }
 
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful && response.body != null) {
-                    Handler(Looper.getMainLooper()).post {
-                        callback(true, response.body!!.string())
-                    }
+                    callback(true, response.body!!.string())
                 } else {
-                    Handler(Looper.getMainLooper()).post {
-                        callback(false, "flag: 1")
-                    }
+                    callback(false, "flag: 1")
+                }
+            }
+        })
+    }
+
+    fun httpGet2(url: String, callback: (Boolean, String) -> Unit) {
+        Log.d(TAG, "load: $url")
+        val request = Request.Builder()
+            .url(url)
+            .get()
+            .addHeader("User-Agent", "PostmanRuntime/7.15.2")
+            .addHeader("Accept", "*/*")
+            .addHeader("Cache-Control", "no-cache")
+            .addHeader("Content-type", "application/xml;charset=utf-8")
+            .addHeader("Cookie", "LIVE_BUVID=AUTO6316723059308065")
+            .addHeader("Accept-Encoding", "deflate")
+            .addHeader("Connection", "keep-alive")
+            .build()
+//        request.headers.forEach {
+//            Log.d("TAG", "onResponse: $it")
+//        }
+        val call = okHttpClient.newCall(request)
+        call.enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                callback(false, "flag: 2")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful && response.body != null) {
+                    callback(true, response.body!!.string())
+                } else {
+                    callback(false, "flag: 1")
                 }
             }
         })

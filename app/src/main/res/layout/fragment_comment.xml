@@ -76,11 +76,11 @@
 
         <ImageView
             android:id="@+id/ivFace"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
+            android:layout_width="45dp"
+            android:layout_height="35dp"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
-            android:src="@drawable/ic_baseline_sentiment_satisfied_24"
+            android:src="@drawable/ic__ico_emoji"
             app:tint="@color/_grey" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,3 +8,6 @@ data class Region(
     var tid: Int,
     var iconPath: Int
 )
+data class Regions(
+    var regions: MutableList<Region>
+)

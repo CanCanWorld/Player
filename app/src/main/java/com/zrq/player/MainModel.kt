@@ -8,6 +8,6 @@ import java.util.*
 
 class MainModel : ViewModel() {
     val videos = LinkedList<Video>()
-    var onBackPress: () -> Unit = {}
     var detail = MutableLiveData<Detail.DataBean>()
+    var onBackPress: () -> Unit = {}
 }

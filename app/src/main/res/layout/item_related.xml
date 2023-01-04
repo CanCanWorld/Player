@@ -1,16 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="101dp">
+
+    <LinearLayout
+        android:id="@+id/llDislike"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="130dp"
+            android:layout_height="80dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivBlur"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:shapeAppearance="@style/circle_img_10" />
+
+            <ImageView
+                android:id="@+id/ivEmo"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_buganxingqu"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tvBanType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivEmo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBanType"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/optimization_this_content"
+                android:textColor="@color/_white"
+                android:textSize="11sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llReset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_chexiao"
+                app:tint="@color/_grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@string/reset"
+                android:textColor="@color/grey"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:padding="10dp"
+        android:foreground="@drawable/pressed_background_black">
 
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -49,22 +123,16 @@
             app:layout_constraintStart_toEndOf="@id/ivCover"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <ImageView
             android:id="@+id/tvUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/shape_tv_up"
-            android:letterSpacing="0.1"
-            android:padding="1dp"
-            android:text="@string/up"
-            android:textColor="@color/_grey"
-            android:textSize="8sp"
-            android:textStyle="bold"
+            android:layout_marginBottom="1dp"
+            android:src="@drawable/ic_upzhu"
             app:layout_constraintBottom_toTopOf="@id/ivPlayNum"
             app:layout_constraintStart_toEndOf="@id/ivCover"
-            tools:ignore="SmallSp" />
+            app:tint="@color/_grey" />
 
         <TextView
             android:id="@+id/tvUpName"
@@ -84,7 +152,7 @@
             android:layout_height="18dp"
             android:layout_marginStart="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_baseline_live_tv_24"
+            android:src="@drawable/ic_bofangshu"
             app:layout_constraintBottom_toBottomOf="@id/ivCover"
             app:layout_constraintStart_toEndOf="@id/ivCover"
             app:tint="@color/_grey" />
@@ -101,11 +169,11 @@
 
         <ImageView
             android:id="@+id/ivDanMu"
-            android:layout_width="20dp"
-            android:layout_height="16dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginStart="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_baseline_wysiwyg_24"
+            android:src="@drawable/ic_danmushu"
             app:layout_constraintBottom_toBottomOf="@id/ivPlayNum"
             app:layout_constraintStart_toEndOf="@id/tvPlayNum"
             app:tint="@color/_grey" />
@@ -135,7 +203,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:background="@color/___grey"
         app:layout_constraintTop_toTopOf="parent" />
-</LinearLayout>
+</RelativeLayout>

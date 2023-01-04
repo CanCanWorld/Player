@@ -19,12 +19,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private lateinit var adapter: PartitionAdapter
 
     override fun initData() {
-        adapter = PartitionAdapter(requireActivity(), Constants.regions)
+        adapter = PartitionAdapter(requireActivity(), Constants.getRegion())
         mBinding.apply {
             viewPager.offscreenPageLimit = 6
             viewPager.adapter = adapter
             TabLayoutMediator(tabLayout, viewPager, true) { tab, position ->
-                tab.text = Constants.regions[position].title
+                tab.text = Constants.getRegion()[position].title
             }.attach()
         }
     }

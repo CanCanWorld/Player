@@ -16,6 +16,7 @@ import com.zrq.player.bean.RelateDao
 import com.zrq.player.bean.Video
 import com.zrq.player.databinding.FragmentRelatedBinding
 import com.zrq.player.utils.CalculationUtils.formatNum
+import com.zrq.player.view.RelatedHideBottomDialog
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -29,10 +30,11 @@ class RelatedFragment : BaseFragment<FragmentRelatedBinding>() {
     private var video: Video? = null
     private var detail: Detail.DataBean? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun initData() {
 
         video = mainModel.videos.peekFirst()
-        adapter = RelatedAdapter(requireContext(), list) { _, position ->
+        adapter = RelatedAdapter(requireContext(), list, { _, position ->
             val bean = list[position]
             mainModel.videos.push(
                 Video(
@@ -43,7 +45,12 @@ class RelatedFragment : BaseFragment<FragmentRelatedBinding>() {
             )
             Navigation.findNavController(requireActivity(), R.id.fragment_container)
                 .navigate(R.id.playerFragment)
-        }
+        },{_,position->
+            val hideBottomDialog = RelatedHideBottomDialog(requireContext(), requireActivity(), list[position]) {
+                adapter.notifyItemChanged(position)
+            }
+            hideBottomDialog.show()
+        })
         mBinding.apply {
             recyclerView.adapter = adapter
         }

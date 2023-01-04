@@ -1,5 +1,8 @@
 package com.zrq.player.utils
 
+import android.app.Activity
+import android.util.DisplayMetrics
+
 object CalculationUtils {
 
     fun formatDuration(duration: Int): String {
@@ -18,6 +21,7 @@ object CalculationUtils {
         }
         return m.toString() + "." + s + "万"
     }
+
     fun formatNum(num: Long): String {
         if (num == 0L) return "0"
         val m = num / 10000
@@ -26,5 +30,19 @@ object CalculationUtils {
             return num.toString()
         }
         return m.toString() + "." + s + "万"
+    }
+
+    fun getWindowWidth(context: Activity): Int {
+        val display = context.windowManager.defaultDisplay
+        val dm = DisplayMetrics()
+        display.getRealMetrics(dm)
+        return dm.widthPixels
+    }
+
+    fun getWindowHeight(context: Activity): Int {
+        val display = context.windowManager.defaultDisplay
+        val dm = DisplayMetrics()
+        display.getRealMetrics(dm)
+        return dm.heightPixels
     }
 }

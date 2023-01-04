@@ -15,4 +15,23 @@
     <string name="comment">热门评论</string>
     <string name="comment_type">按热度</string>
     <string name="send_comment">发一条友善的评论</string>
+    <string name="add_to_watch_late">添加至稍后再看</string>
+    <string name="feedback">反馈</string>
+    <string name="optimization">(选择后将优化首页此类内容)</string>
+    <string name="horrible_bloody">恐怖血腥</string>
+    <string name="porn">色情低俗</string>
+    <string name="nausea">封面恶心</string>
+    <string name="cover_party">标题党/封面党</string>
+    <string name="want_not_watch">我不想看</string>
+    <string name="reduce">(选择后将减少相似内容推荐)</string>
+    <string name="up_">UP主:</string>
+    <string name="partition">分区:</string>
+    <string name="channel">频道:</string>
+    <string name="so_much">此类内容过多</string>
+    <string name="recommended">推荐过</string>
+    <string name="dislike">不感兴趣</string>
+    <string name="cancel">取消</string>
+    <string name="reset">撤销</string>
+    <string name="optimization_this_content">将优化首页此类内容</string>
+    <string name="long_click">(长按拖动修改首页顺序)</string>
 </resources>

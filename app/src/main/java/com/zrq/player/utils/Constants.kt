@@ -1,7 +1,11 @@
 package com.zrq.player.utils
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.tencent.mmkv.MMKV
 import com.zrq.player.R
 import com.zrq.player.bean.Region
+import com.zrq.player.bean.Regions
 
 object Constants {
     const val BASE_URL = "https://api.bilibili.com/x"
@@ -18,7 +22,9 @@ object Constants {
 
     const val REPLY = "/v2/reply"
 
-    val regions = arrayListOf(
+    const val DANMAKU = "/v1/dm/list.so"
+
+    private var regions = arrayListOf(
         Region("动画", 1, R.drawable.ic_douga),
         Region("番剧", 13, R.drawable.ic_anime),
         Region("国创", 167, R.drawable.ic_guochuang),
@@ -42,4 +48,16 @@ object Constants {
         Region("电视剧", 11, R.drawable.ic_teleplay),
     )
 
+    private val mmkv: MMKV = MMKV.defaultMMKV()
+
+    fun setRegion(regions: MutableList<Region>) {
+        val toJson = Gson().toJson(Regions(regions), object : TypeToken<Regions>() {}.type)
+        mmkv.putString("regions", toJson)
+    }
+
+    fun getRegion(): MutableList<Region> {
+        val toJson = Gson().toJson(Regions(regions), object : TypeToken<Regions>() {}.type)
+        val string = mmkv.getString("regions", toJson)
+        return Gson().fromJson(string, Regions::class.java).regions
+    }
 }

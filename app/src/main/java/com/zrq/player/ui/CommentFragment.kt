@@ -1,6 +1,8 @@
 package com.zrq.player.ui
 
 import android.annotation.SuppressLint
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -28,7 +30,7 @@ class CommentFragment : BaseFragment<FragmentCommentBinding>() {
 
         }
         mBinding.apply {
-            recyclerView.adapter= adapter
+            recyclerView.adapter = adapter
         }
         mainModel.detail.observe(this) {
             detail = it
@@ -42,6 +44,7 @@ class CommentFragment : BaseFragment<FragmentCommentBinding>() {
     @SuppressLint("NotifyDataSetChanged")
     private fun initComment() {
         detail?.let { detail ->
+            if (detail.reply?.replies == null) return
             val oid = detail.reply.replies[0].oid
             val url = "$BASE_URL$REPLY?type=1&oid=$oid"
             httpGet(url) { success, msg ->
@@ -50,10 +53,14 @@ class CommentFragment : BaseFragment<FragmentCommentBinding>() {
                     comment?.data?.replies?.let {
                         list.clear()
                         list.addAll(it)
-                        adapter.notifyDataSetChanged()
+                        Handler(Looper.getMainLooper()).post {
+                            adapter.notifyDataSetChanged()
+                        }
                     }
                 } else {
-                    Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+                    Handler(Looper.getMainLooper()).post {
+                        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
