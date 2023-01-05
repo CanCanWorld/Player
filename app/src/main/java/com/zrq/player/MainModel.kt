@@ -7,8 +7,8 @@ import com.zrq.player.bean.Video
 import java.util.*
 
 class MainModel : ViewModel() {
-    val videos = LinkedList<Video>()
     var detail = MutableLiveData<Detail.DataBean>()
+    val keyword = MutableLiveData<String>()
+    val videos = LinkedList<Video>()
     var onBackPress: () -> Unit = {}
-    var keyword = ""
 }

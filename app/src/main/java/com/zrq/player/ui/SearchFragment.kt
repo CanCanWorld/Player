@@ -26,9 +26,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                     Toast.makeText(requireContext(), "请输入关键字", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
-                mainModel.keyword = keyword
+                mainModel.keyword.postValue(keyword)
                 Navigation.findNavController(requireActivity(), R.id.fragment_search_container)
                     .navigate(R.id.searchResultFragment)
+            }
+            ivBack.setOnClickListener {
+                Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                    .popBackStack()
             }
         }
     }

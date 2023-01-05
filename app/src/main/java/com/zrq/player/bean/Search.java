@@ -9,7 +9,7 @@ public class Search {
     private int code;
     private String message;
     private int ttl;
-    private DataDTO data;
+    private DataBean data;
 
     public int getCode() {
         return code;
@@ -35,15 +35,15 @@ public class Search {
         this.ttl = ttl;
     }
 
-    public DataDTO getData() {
+    public DataBean getData() {
         return data;
     }
 
-    public void setData(DataDTO data) {
+    public void setData(DataBean data) {
         this.data = data;
     }
 
-    public static class DataDTO {
+    public static class DataBean {
         private String seid;
         private int page;
         private int pagesize;
@@ -51,18 +51,13 @@ public class Search {
         private int numPages;
         private String suggest_keyword;
         private String rqt_type;
-        private CostTimeDTO cost_time;
-        private ExpListDTO exp_list;
+        private CostTimeBean cost_time;
+        private ExpListBean exp_list;
         private int egg_hit;
-        private PageinfoDTO pageinfo;
-        private TopTlistDTO top_tlist;
+        private List<ResultBean> result;
         private int show_column;
-        private List<String> show_module_list;
-        private AppDisplayOptionDTO app_display_option;
         private int in_black_key;
         private int in_white_key;
-        private List<ResultDTO> result;
-        private int is_search_page_grayed;
 
         public String getSeid() {
             return seid;
@@ -120,19 +115,19 @@ public class Search {
             this.rqt_type = rqt_type;
         }
 
-        public CostTimeDTO getCost_time() {
+        public CostTimeBean getCost_time() {
             return cost_time;
         }
 
-        public void setCost_time(CostTimeDTO cost_time) {
+        public void setCost_time(CostTimeBean cost_time) {
             this.cost_time = cost_time;
         }
 
-        public ExpListDTO getExp_list() {
+        public ExpListBean getExp_list() {
             return exp_list;
         }
 
-        public void setExp_list(ExpListDTO exp_list) {
+        public void setExp_list(ExpListBean exp_list) {
             this.exp_list = exp_list;
         }
 
@@ -144,20 +139,12 @@ public class Search {
             this.egg_hit = egg_hit;
         }
 
-        public PageinfoDTO getPageinfo() {
-            return pageinfo;
+        public List<ResultBean> getResult() {
+            return result;
         }
 
-        public void setPageinfo(PageinfoDTO pageinfo) {
-            this.pageinfo = pageinfo;
-        }
-
-        public TopTlistDTO getTop_tlist() {
-            return top_tlist;
-        }
-
-        public void setTop_tlist(TopTlistDTO top_tlist) {
-            this.top_tlist = top_tlist;
+        public void setResult(List<ResultBean> result) {
+            this.result = result;
         }
 
         public int getShow_column() {
@@ -166,22 +153,6 @@ public class Search {
 
         public void setShow_column(int show_column) {
             this.show_column = show_column;
-        }
-
-        public List<String> getShow_module_list() {
-            return show_module_list;
-        }
-
-        public void setShow_module_list(List<String> show_module_list) {
-            this.show_module_list = show_module_list;
-        }
-
-        public AppDisplayOptionDTO getApp_display_option() {
-            return app_display_option;
-        }
-
-        public void setApp_display_option(AppDisplayOptionDTO app_display_option) {
-            this.app_display_option = app_display_option;
         }
 
         public int getIn_black_key() {
@@ -200,32 +171,15 @@ public class Search {
             this.in_white_key = in_white_key;
         }
 
-        public List<ResultDTO> getResult() {
-            return result;
-        }
-
-        public void setResult(List<ResultDTO> result) {
-            this.result = result;
-        }
-
-        public int getIs_search_page_grayed() {
-            return is_search_page_grayed;
-        }
-
-        public void setIs_search_page_grayed(int is_search_page_grayed) {
-            this.is_search_page_grayed = is_search_page_grayed;
-        }
-
-        public static class CostTimeDTO {
+        public static class CostTimeBean {
             private String params_check;
             private String is_risk_query;
             private String illegal_handler;
             private String as_response_format;
-            private String mysql_request;
             private String as_request;
             private String save_cache;
-            private String as_request_format;
             private String deserialize_response;
+            private String as_request_format;
             private String total;
             private String main_handler;
 
@@ -261,14 +215,6 @@ public class Search {
                 this.as_response_format = as_response_format;
             }
 
-            public String getMysql_request() {
-                return mysql_request;
-            }
-
-            public void setMysql_request(String mysql_request) {
-                this.mysql_request = mysql_request;
-            }
-
             public String getAs_request() {
                 return as_request;
             }
@@ -285,20 +231,20 @@ public class Search {
                 this.save_cache = save_cache;
             }
 
-            public String getAs_request_format() {
-                return as_request_format;
-            }
-
-            public void setAs_request_format(String as_request_format) {
-                this.as_request_format = as_request_format;
-            }
-
             public String getDeserialize_response() {
                 return deserialize_response;
             }
 
             public void setDeserialize_response(String deserialize_response) {
                 this.deserialize_response = deserialize_response;
+            }
+
+            public String getAs_request_format() {
+                return as_request_format;
+            }
+
+            public void setAs_request_format(String as_request_format) {
+                this.as_request_format = as_request_format;
             }
 
             public String getTotal() {
@@ -318,1035 +264,381 @@ public class Search {
             }
         }
 
-        public static class ExpListDTO {
-            @SerializedName("6609")
-            private boolean _$6609;
-            @SerializedName("5505")
-            private boolean _$5505;
-            @SerializedName("7709")
-            private boolean _$7709;
+        public static class ExpListBean {
+            @SerializedName("5510")
+            private boolean _$5510;
+            @SerializedName("6604")
+            private boolean _$6604;
+            @SerializedName("7701")
+            private boolean _$7701;
 
-            public boolean is_$6609() {
-                return _$6609;
+            public boolean is_$5510() {
+                return _$5510;
             }
 
-            public void set_$6609(boolean _$6609) {
-                this._$6609 = _$6609;
+            public void set_$5510(boolean _$5510) {
+                this._$5510 = _$5510;
             }
 
-            public boolean is_$5505() {
-                return _$5505;
+            public boolean is_$6604() {
+                return _$6604;
             }
 
-            public void set_$5505(boolean _$5505) {
-                this._$5505 = _$5505;
+            public void set_$6604(boolean _$6604) {
+                this._$6604 = _$6604;
             }
 
-            public boolean is_$7709() {
-                return _$7709;
+            public boolean is_$7701() {
+                return _$7701;
             }
 
-            public void set_$7709(boolean _$7709) {
-                this._$7709 = _$7709;
+            public void set_$7701(boolean _$7701) {
+                this._$7701 = _$7701;
             }
         }
 
-        public static class PageinfoDTO {
-            private LiveRoomDTO live_room;
-            private PgcDTO pgc;
-            private OperationCardDTO operation_card;
-            private TvDTO tv;
-            private MovieDTO movie;
-            private BiliUserDTO bili_user;
-            private LiveMasterDTO live_master;
-            private LiveAllDTO live_all;
-            private TopicDTO topic;
-            private UpuserDTO upuser;
-            private LiveDTO live;
-            private VideoDTO video;
-            private UserDTO user;
-            private BangumiDTO bangumi;
-            private ActivityDTO activity;
-            private MediaFtDTO media_ft;
-            private ArticleDTO article;
-            private MediaBangumiDTO media_bangumi;
-            private SpecialDTO special;
-            private LiveUserDTO live_user;
+        public static class ResultBean {
+            private String type;
+            private int id;
+            private String author;
+            private int mid;
+            private String typeid;
+            private String typename;
+            private String arcurl;
+            private int aid;
+            private String bvid;
+            private String title;
+            private String description;
+            private String arcrank;
+            private String pic;
+            private int play;
+            private int video_review;
+            private int favorites;
+            private String tag;
+            private int review;
+            private int pubdate;
+            private int senddate;
+            private String duration;
+            private boolean badgepay;
+            private List<String> hit_columns;
+            private String view_type;
+            private int is_pay;
+            private int is_union_video;
+            private Object rec_tags;
+            private List<?> new_rec_tags;
+            private int rank_score;
+            private int like;
+            private String upic;
+            private String corner;
+            private String cover;
+            private String desc;
+            private String url;
+            private String rec_reason;
+            private int danmaku;
+            private Object biz_data;
 
-            public LiveRoomDTO getLive_room() {
-                return live_room;
+            public String getType() {
+                return type;
             }
 
-            public void setLive_room(LiveRoomDTO live_room) {
-                this.live_room = live_room;
+            public void setType(String type) {
+                this.type = type;
             }
 
-            public PgcDTO getPgc() {
-                return pgc;
+            public int getId() {
+                return id;
             }
 
-            public void setPgc(PgcDTO pgc) {
-                this.pgc = pgc;
+            public void setId(int id) {
+                this.id = id;
             }
 
-            public OperationCardDTO getOperation_card() {
-                return operation_card;
+            public String getAuthor() {
+                return author;
             }
 
-            public void setOperation_card(OperationCardDTO operation_card) {
-                this.operation_card = operation_card;
+            public void setAuthor(String author) {
+                this.author = author;
             }
 
-            public TvDTO getTv() {
-                return tv;
+            public int getMid() {
+                return mid;
             }
 
-            public void setTv(TvDTO tv) {
-                this.tv = tv;
+            public void setMid(int mid) {
+                this.mid = mid;
             }
 
-            public MovieDTO getMovie() {
-                return movie;
+            public String getTypeid() {
+                return typeid;
             }
 
-            public void setMovie(MovieDTO movie) {
-                this.movie = movie;
+            public void setTypeid(String typeid) {
+                this.typeid = typeid;
             }
 
-            public BiliUserDTO getBili_user() {
-                return bili_user;
+            public String getTypename() {
+                return typename;
             }
 
-            public void setBili_user(BiliUserDTO bili_user) {
-                this.bili_user = bili_user;
+            public void setTypename(String typename) {
+                this.typename = typename;
             }
 
-            public LiveMasterDTO getLive_master() {
-                return live_master;
+            public String getArcurl() {
+                return arcurl;
             }
 
-            public void setLive_master(LiveMasterDTO live_master) {
-                this.live_master = live_master;
+            public void setArcurl(String arcurl) {
+                this.arcurl = arcurl;
             }
 
-            public LiveAllDTO getLive_all() {
-                return live_all;
+            public int getAid() {
+                return aid;
             }
 
-            public void setLive_all(LiveAllDTO live_all) {
-                this.live_all = live_all;
+            public void setAid(int aid) {
+                this.aid = aid;
             }
 
-            public TopicDTO getTopic() {
-                return topic;
+            public String getBvid() {
+                return bvid;
             }
 
-            public void setTopic(TopicDTO topic) {
-                this.topic = topic;
+            public void setBvid(String bvid) {
+                this.bvid = bvid;
             }
 
-            public UpuserDTO getUpuser() {
-                return upuser;
+            public String getTitle() {
+                return title;
             }
 
-            public void setUpuser(UpuserDTO upuser) {
-                this.upuser = upuser;
+            public void setTitle(String title) {
+                this.title = title;
             }
 
-            public LiveDTO getLive() {
-                return live;
+            public String getDescription() {
+                return description;
             }
 
-            public void setLive(LiveDTO live) {
-                this.live = live;
+            public void setDescription(String description) {
+                this.description = description;
             }
 
-            public VideoDTO getVideo() {
-                return video;
+            public String getArcrank() {
+                return arcrank;
             }
 
-            public void setVideo(VideoDTO video) {
-                this.video = video;
+            public void setArcrank(String arcrank) {
+                this.arcrank = arcrank;
             }
 
-            public UserDTO getUser() {
-                return user;
+            public String getPic() {
+                return pic;
             }
 
-            public void setUser(UserDTO user) {
-                this.user = user;
+            public void setPic(String pic) {
+                this.pic = pic;
             }
 
-            public BangumiDTO getBangumi() {
-                return bangumi;
+            public int getPlay() {
+                return play;
             }
 
-            public void setBangumi(BangumiDTO bangumi) {
-                this.bangumi = bangumi;
+            public void setPlay(int play) {
+                this.play = play;
             }
 
-            public ActivityDTO getActivity() {
-                return activity;
+            public int getVideo_review() {
+                return video_review;
             }
 
-            public void setActivity(ActivityDTO activity) {
-                this.activity = activity;
+            public void setVideo_review(int video_review) {
+                this.video_review = video_review;
             }
 
-            public MediaFtDTO getMedia_ft() {
-                return media_ft;
+            public int getFavorites() {
+                return favorites;
             }
 
-            public void setMedia_ft(MediaFtDTO media_ft) {
-                this.media_ft = media_ft;
+            public void setFavorites(int favorites) {
+                this.favorites = favorites;
             }
 
-            public ArticleDTO getArticle() {
-                return article;
+            public String getTag() {
+                return tag;
             }
 
-            public void setArticle(ArticleDTO article) {
-                this.article = article;
+            public void setTag(String tag) {
+                this.tag = tag;
             }
 
-            public MediaBangumiDTO getMedia_bangumi() {
-                return media_bangumi;
+            public int getReview() {
+                return review;
             }
 
-            public void setMedia_bangumi(MediaBangumiDTO media_bangumi) {
-                this.media_bangumi = media_bangumi;
+            public void setReview(int review) {
+                this.review = review;
             }
 
-            public SpecialDTO getSpecial() {
-                return special;
+            public int getPubdate() {
+                return pubdate;
             }
 
-            public void setSpecial(SpecialDTO special) {
-                this.special = special;
+            public void setPubdate(int pubdate) {
+                this.pubdate = pubdate;
             }
 
-            public LiveUserDTO getLive_user() {
-                return live_user;
+            public int getSenddate() {
+                return senddate;
             }
 
-            public void setLive_user(LiveUserDTO live_user) {
-                this.live_user = live_user;
+            public void setSenddate(int senddate) {
+                this.senddate = senddate;
             }
 
-            public static class LiveRoomDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class PgcDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class OperationCardDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class TvDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class MovieDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class BiliUserDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class LiveMasterDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class LiveAllDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class TopicDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class UpuserDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class LiveDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class VideoDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class UserDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class BangumiDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class ActivityDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class MediaFtDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class ArticleDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class MediaBangumiDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class SpecialDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-
-            public static class LiveUserDTO {
-                private int numResults;
-                private int total;
-                private int pages;
-
-                public int getNumResults() {
-                    return numResults;
-                }
-
-                public void setNumResults(int numResults) {
-                    this.numResults = numResults;
-                }
-
-                public int getTotal() {
-                    return total;
-                }
-
-                public void setTotal(int total) {
-                    this.total = total;
-                }
-
-                public int getPages() {
-                    return pages;
-                }
-
-                public void setPages(int pages) {
-                    this.pages = pages;
-                }
-            }
-        }
-
-        public static class TopTlistDTO {
-            private int live_room;
-            private int pgc;
-            private int operation_card;
-            private int tv;
-            private int movie;
-            private int special;
-            private int live_master;
-            private int bili_user;
-            private int topic;
-            private int upuser;
-            private int live;
-            private int video;
-            private int user;
-            private int bangumi;
-            private int activity;
-            private int media_ft;
-            private int article;
-            private int media_bangumi;
-            private int card;
-            private int live_user;
-
-            public int getLive_room() {
-                return live_room;
-            }
-
-            public void setLive_room(int live_room) {
-                this.live_room = live_room;
-            }
-
-            public int getPgc() {
-                return pgc;
-            }
-
-            public void setPgc(int pgc) {
-                this.pgc = pgc;
-            }
-
-            public int getOperation_card() {
-                return operation_card;
-            }
-
-            public void setOperation_card(int operation_card) {
-                this.operation_card = operation_card;
+            public String getDuration() {
+                return duration;
             }
 
-            public int getTv() {
-                return tv;
+            public void setDuration(String duration) {
+                this.duration = duration;
             }
 
-            public void setTv(int tv) {
-                this.tv = tv;
+            public boolean isBadgepay() {
+                return badgepay;
             }
 
-            public int getMovie() {
-                return movie;
+            public void setBadgepay(boolean badgepay) {
+                this.badgepay = badgepay;
             }
 
-            public void setMovie(int movie) {
-                this.movie = movie;
+            public List<String> getHit_columns() {
+                return hit_columns;
             }
 
-            public int getSpecial() {
-                return special;
+            public void setHit_columns(List<String> hit_columns) {
+                this.hit_columns = hit_columns;
             }
 
-            public void setSpecial(int special) {
-                this.special = special;
+            public String getView_type() {
+                return view_type;
             }
 
-            public int getLive_master() {
-                return live_master;
+            public void setView_type(String view_type) {
+                this.view_type = view_type;
             }
 
-            public void setLive_master(int live_master) {
-                this.live_master = live_master;
+            public int getIs_pay() {
+                return is_pay;
             }
 
-            public int getBili_user() {
-                return bili_user;
+            public void setIs_pay(int is_pay) {
+                this.is_pay = is_pay;
             }
 
-            public void setBili_user(int bili_user) {
-                this.bili_user = bili_user;
+            public int getIs_union_video() {
+                return is_union_video;
             }
 
-            public int getTopic() {
-                return topic;
+            public void setIs_union_video(int is_union_video) {
+                this.is_union_video = is_union_video;
             }
 
-            public void setTopic(int topic) {
-                this.topic = topic;
+            public Object getRec_tags() {
+                return rec_tags;
             }
 
-            public int getUpuser() {
-                return upuser;
+            public void setRec_tags(Object rec_tags) {
+                this.rec_tags = rec_tags;
             }
 
-            public void setUpuser(int upuser) {
-                this.upuser = upuser;
+            public List<?> getNew_rec_tags() {
+                return new_rec_tags;
             }
 
-            public int getLive() {
-                return live;
+            public void setNew_rec_tags(List<?> new_rec_tags) {
+                this.new_rec_tags = new_rec_tags;
             }
 
-            public void setLive(int live) {
-                this.live = live;
+            public int getRank_score() {
+                return rank_score;
             }
 
-            public int getVideo() {
-                return video;
+            public void setRank_score(int rank_score) {
+                this.rank_score = rank_score;
             }
 
-            public void setVideo(int video) {
-                this.video = video;
+            public int getLike() {
+                return like;
             }
 
-            public int getUser() {
-                return user;
+            public void setLike(int like) {
+                this.like = like;
             }
 
-            public void setUser(int user) {
-                this.user = user;
+            public String getUpic() {
+                return upic;
             }
 
-            public int getBangumi() {
-                return bangumi;
+            public void setUpic(String upic) {
+                this.upic = upic;
             }
 
-            public void setBangumi(int bangumi) {
-                this.bangumi = bangumi;
+            public String getCorner() {
+                return corner;
             }
 
-            public int getActivity() {
-                return activity;
+            public void setCorner(String corner) {
+                this.corner = corner;
             }
 
-            public void setActivity(int activity) {
-                this.activity = activity;
+            public String getCover() {
+                return cover;
             }
 
-            public int getMedia_ft() {
-                return media_ft;
+            public void setCover(String cover) {
+                this.cover = cover;
             }
 
-            public void setMedia_ft(int media_ft) {
-                this.media_ft = media_ft;
+            public String getDesc() {
+                return desc;
             }
 
-            public int getArticle() {
-                return article;
+            public void setDesc(String desc) {
+                this.desc = desc;
             }
 
-            public void setArticle(int article) {
-                this.article = article;
+            public String getUrl() {
+                return url;
             }
 
-            public int getMedia_bangumi() {
-                return media_bangumi;
+            public void setUrl(String url) {
+                this.url = url;
             }
 
-            public void setMedia_bangumi(int media_bangumi) {
-                this.media_bangumi = media_bangumi;
+            public String getRec_reason() {
+                return rec_reason;
             }
 
-            public int getCard() {
-                return card;
+            public void setRec_reason(String rec_reason) {
+                this.rec_reason = rec_reason;
             }
-
-            public void setCard(int card) {
-                this.card = card;
-            }
-
-            public int getLive_user() {
-                return live_user;
-            }
-
-            public void setLive_user(int live_user) {
-                this.live_user = live_user;
-            }
-        }
-
-        public static class AppDisplayOptionDTO {
-            private int is_search_page_grayed;
-
-            public int getIs_search_page_grayed() {
-                return is_search_page_grayed;
-            }
-
-            public void setIs_search_page_grayed(int is_search_page_grayed) {
-                this.is_search_page_grayed = is_search_page_grayed;
-            }
-        }
-
-        public static class ResultDTO {
-            private String result_type;
-            private List<SearchVideo> data;
 
-            public String getResult_type() {
-                return result_type;
+            public int getDanmaku() {
+                return danmaku;
             }
 
-            public void setResult_type(String result_type) {
-                this.result_type = result_type;
+            public void setDanmaku(int danmaku) {
+                this.danmaku = danmaku;
             }
 
-            public List<SearchVideo> getData() {
-                return data;
+            public Object getBiz_data() {
+                return biz_data;
             }
 
-            public void setData(List<SearchVideo> data) {
-                this.data = data;
+            public void setBiz_data(Object biz_data) {
+                this.biz_data = biz_data;
             }
         }
     }

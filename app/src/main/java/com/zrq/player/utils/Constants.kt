@@ -26,8 +26,10 @@ object Constants {
 
     const val BILIBILI = "https://bilibili.com"
 
-    //?keyword=1
-    const val SEARCH = "/web-interface/search/all/v2"
+    const val HOT_SEARCH = "https://s.search.bilibili.com/main/hotword"
+
+    //?search_type=video&keyword=初音&page=1
+    const val SEARCH = "/web-interface/search/type"
 
     private var regions = arrayListOf(
         Region("动画", 1, R.drawable.ic_douga),
