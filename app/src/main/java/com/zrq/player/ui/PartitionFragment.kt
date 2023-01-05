@@ -17,13 +17,14 @@ import com.zrq.player.bean.RegionVideo
 import com.zrq.player.bean.Video
 import com.zrq.player.databinding.BottomVideoSettingBinding
 import com.zrq.player.databinding.FragmentPartitionBinding
+import com.zrq.player.utils.Constants
 import com.zrq.player.utils.Constants.BASE_URL
 import com.zrq.player.utils.Constants.REGION
 import com.zrq.player.utils.HttpUtil
 import com.zrq.player.view.HideBottomDialog
 
 class PartitionFragment(
-    private val region: Region
+    private val position: Int
 ) : BaseFragment<FragmentPartitionBinding>() {
     override fun providedViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentPartitionBinding {
         return FragmentPartitionBinding.inflate(inflater, container, false)
@@ -77,6 +78,7 @@ class PartitionFragment(
     @SuppressLint("NotifyDataSetChanged")
     private fun loadVideo() {
         Log.d(TAG, "page: $page")
+        val region = Constants.getRegion()[position]
         val url = "$BASE_URL$REGION?rid=${region.tid}&pn=$page&ps=$pageCount"
         HttpUtil.httpGet(url) { success, msg ->
             if (success) {

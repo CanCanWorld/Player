@@ -23,6 +23,7 @@
             app:shapeAppearance="@style/circle_img" />
 
         <LinearLayout
+            android:id="@+id/llSearch"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_marginHorizontal="20dp"
@@ -38,11 +39,10 @@
                 app:tint="@color/_grey" />
 
             <TextView
-                android:id="@+id/tvSearch"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="center_vertical"
-                android:paddingHorizontal="10dp"
+                android:layout_marginHorizontal="10dp"
                 android:text="@string/string"
                 android:textColor="@color/_grey" />
         </LinearLayout>

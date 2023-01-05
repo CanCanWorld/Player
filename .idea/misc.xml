@@ -10,18 +10,23 @@
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_outline_markunread_24.xml" value="0.196" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_outline_mode_comment_24.xml" value="0.1" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_outline_thumb_down_24.xml" value="0.1" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_et_search.xml" value="0.1155" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_setting.xml" value="0.141" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_tv_up.xml" value="0.196" />
-        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/activity_main.xml" value="0.42552083333333335" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/bottom_related_video_setting.xml" value="0.2" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/bottom_video_setting.xml" value="0.13924050632911392" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_comment.xml" value="0.2565217391304348" />
-        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_partition.xml" value="0.18" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_player.xml" value="0.22" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_region_item.xml" value="0.22" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_related.xml" value="0.15" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_search.xml" value="0.2" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_search_detail.xml" value="0.22" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_search_result.xml" value="0.14" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/item_comment.xml" value="0.3049095607235142" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/item_hot_search.xml" value="0.20212765957446807" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/item_popular.xml" value="0.25" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/item_recommend.xml" value="0.33" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/item_related.xml" value="0.36310679611650487" />

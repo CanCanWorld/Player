@@ -24,6 +24,11 @@ object Constants {
 
     const val DANMAKU = "/v1/dm/list.so"
 
+    const val BILIBILI = "https://bilibili.com"
+
+    //?keyword=1
+    const val SEARCH = "/web-interface/search/all/v2"
+
     private var regions = arrayListOf(
         Region("动画", 1, R.drawable.ic_douga),
         Region("番剧", 13, R.drawable.ic_anime),

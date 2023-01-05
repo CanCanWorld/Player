@@ -15,6 +15,6 @@ class PartitionAdapter(
     }
 
     override fun createFragment(position: Int): Fragment {
-        return PartitionFragment(list[position])
+        return PartitionFragment(position)
     }
 }

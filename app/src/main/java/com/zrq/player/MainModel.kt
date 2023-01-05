@@ -10,4 +10,5 @@ class MainModel : ViewModel() {
     val videos = LinkedList<Video>()
     var detail = MutableLiveData<Detail.DataBean>()
     var onBackPress: () -> Unit = {}
+    var keyword = ""
 }

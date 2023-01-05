@@ -1,5 +1,6 @@
 package com.zrq.player.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
@@ -16,7 +17,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
 
-    private lateinit var adapter: PartitionAdapter
+    private var adapter: PartitionAdapter? = null
 
     override fun initData() {
         adapter = PartitionAdapter(requireActivity(), Constants.getRegion())
@@ -35,7 +36,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 Navigation.findNavController(requireActivity(), R.id.fragment_container)
                     .navigate(R.id.regionItemFragment)
             }
+            llSearch.setOnClickListener {
+                Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                    .navigate(R.id.searchFragment)
+            }
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onResume() {
+        super.onResume()
     }
 
     companion object {
