@@ -33,7 +33,7 @@ class SearchAdapter(
         holder.binding.apply {
             if (bean.isDismiss) {
                 Glide.with(context)
-                    .load(bean.pic)
+                    .load("https://" + bean.pic)
                     .apply(RequestOptions.bitmapTransform(MultiTransformation(BlurTransformation(90))))
                     .into(ivBlur)
                 tvBanType.text = bean.banType

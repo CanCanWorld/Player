@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_width="130dp"
+            android:layout_width="160dp"
             android:layout_height="100dp">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -28,7 +28,7 @@
                 android:layout_height="32dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:src="@drawable/ic_buganxingqu"
                 app:tint="@color/white" />
 

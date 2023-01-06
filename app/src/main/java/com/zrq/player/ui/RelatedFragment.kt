@@ -59,7 +59,6 @@ class RelatedFragment : BaseFragment<FragmentRelatedBinding>() {
     @SuppressLint("NotifyDataSetChanged")
     private fun initRelated() {
         detail?.let { detail ->
-            Log.d(TAG, "initRelated: ${detail.related[0].title}")
             list.clear()
             list.addAll(detail.related)
             adapter.notifyDataSetChanged()

@@ -24,7 +24,7 @@ class SearchDetailFragment : BaseFragment<FragmentSearchDetailBinding>() {
     override fun initData() {
         loadHotSearch()
         adapter = HotSearchAdapter(requireContext(), list) { _, position ->
-
+            mainModel.etText.postValue(list[position].keyword)
         }
         mBinding.apply {
             recyclerView.adapter = adapter

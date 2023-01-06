@@ -1,9 +1,12 @@
 package com.zrq.player.bean;
 
+import androidx.annotation.Keep;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+@Keep
 public class Search {
 
     private int code;
@@ -301,7 +304,7 @@ public class Search {
             private String type;
             private int id;
             private String author;
-            private int mid;
+            private long mid;
             private String typeid;
             private String typename;
             private String arcurl;
@@ -363,11 +366,11 @@ public class Search {
                 this.author = author;
             }
 
-            public int getMid() {
+            public long getMid() {
                 return mid;
             }
 
-            public void setMid(int mid) {
+            public void setMid(long mid) {
                 this.mid = mid;
             }
 
