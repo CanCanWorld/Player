@@ -1,7 +1,10 @@
 package com.zrq.player.bean;
 
+import androidx.annotation.Keep;
+
 import java.util.List;
 
+@Keep
 public class HotSearch {
 
     private String exp_str;
