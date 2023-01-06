@@ -20,12 +20,14 @@ import com.zrq.player.utils.Constants.PLAY_URL
 import com.zrq.player.utils.HttpUtil.httpGet
 import com.zrq.player.utils.HttpUtil.httpGet2
 import com.zrq.player.utils.HttpUtil.httpXmlGet
+import com.zrq.player.view.PortraitWhenFullScreenController
 import org.xml.sax.InputSource
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import org.xmlpull.v1.XmlPullParserFactory
 import tv.danmaku.ijk.media.player.IjkMediaPlayer
 import xyz.doikki.videocontroller.StandardVideoController
+import xyz.doikki.videoplayer.controller.GestureVideoController
 import xyz.doikki.videoplayer.ijk.IjkPlayerFactory
 import java.io.StringReader
 
@@ -76,11 +78,36 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
                             videoView.setUrl(url) //设置视频地址
 
                             Handler(Looper.getMainLooper()).post {
-                                val controller = StandardVideoController(requireContext())
+
+                                Log.d(TAG, "width: ${videoView.videoSize[0]}")
+                                Log.d(TAG, "height: ${videoView.videoSize[1]}")
+
+                                var controller = StandardVideoController(requireContext())
                                 controller.addDefaultControlComponent(detail.view.title, false)
+
                                 videoView.setVideoController(controller) //设置控制器
 
                                 videoView.start() //开始播放，不调用则不自动播放
+                                var width = videoView.videoSize[0]
+                                var height = videoView.videoSize[1]
+                                Thread {
+                                    while (videoView.videoSize[0] == 0) {
+                                        Thread.sleep(1000)
+                                    }
+                                    width = videoView.videoSize[0]
+                                    height = videoView.videoSize[1]
+                                    Log.d(TAG, "width: $width")
+                                    Log.d(TAG, "height: $height")
+                                    Handler(Looper.getMainLooper()).post {
+                                        controller = if (videoView.videoSize[0] > videoView.videoSize[1]) {
+                                            StandardVideoController(requireContext())
+                                        } else {
+                                            PortraitWhenFullScreenController(requireContext())
+                                        }
+                                        controller.addDefaultControlComponent(detail.view.title, false)
+                                        videoView.setVideoController(controller) //设置控制器
+                                    }
+                                }.start()
                             }
                         }
                     } else {
