@@ -34,25 +34,24 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
         return FragmentPlayerBinding.inflate(inflater, container, false)
     }
 
-    private var video: Video? = null
+    private var bvid = ""
     private lateinit var detailAdapter: DetailAdapter
     private var detail: Detail.DataBean? = null
 
     override fun initData() {
-        video = mainModel.videos.peekFirst()
+        Log.d(TAG, "initData: ${mainModel.bvids}")
+        bvid = mainModel.bvids.peekFirst().toString()
         loadDetail()
-        loadDanmaku()
+//        loadDanmaku()
         detailAdapter = DetailAdapter(requireActivity())
         mBinding.apply {
-            video?.let { video ->
-                viewPager.offscreenPageLimit = 2
-                viewPager.adapter = detailAdapter
-                TabLayoutMediator(tabLayout, viewPager, true) { tab, position ->
-                    tab.text = if (position == 0) "简介" else "评论${video.reply}"
-                }.attach()
-            }
+            viewPager.offscreenPageLimit = 2
+            viewPager.adapter = detailAdapter
+            TabLayoutMediator(tabLayout, viewPager, true) { tab, position ->
+                tab.text = if (position == 0) "简介" else "评论"
+            }.attach()
         }
-        initPlayerView()
+
     }
 
     override fun initEvent() {
@@ -60,15 +59,16 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
         mainModel.onBackPress = {
             if (mBinding.videoView.onBackPressed()) {
             } else {
-                mainModel.videos.pop()
+                if (mainModel.bvids.size > 0)
+                    mainModel.bvids.pop()
             }
         }
     }
 
     private fun initPlayerView() {
         mBinding.apply {
-            video?.let { video ->
-                val url = "$BASE_URL$PLAY_URL?bvid=${video.bvid}&cid=${video.cid}&platform=html5"
+            detail?.let { detail ->
+                val url = "$BASE_URL$PLAY_URL?bvid=${detail.view.bvid}&cid=${detail.view.cid}&platform=html5"
                 httpGet(url) { success, msg ->
                     if (success) {
                         val bean = Gson().fromJson(msg, PlayUrl::class.java)
@@ -77,7 +77,7 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
 
                             Handler(Looper.getMainLooper()).post {
                                 val controller = StandardVideoController(requireContext())
-                                controller.addDefaultControlComponent(video.title, false)
+                                controller.addDefaultControlComponent(detail.view.title, false)
                                 videoView.setVideoController(controller) //设置控制器
 
                                 videoView.start() //开始播放，不调用则不自动播放
@@ -94,24 +94,29 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
     }
 
     private fun loadDetail() {
-        video?.let { video ->
-            val url = "$BASE_URL$DETAIL?bvid=${video.bvid}"
-            httpGet(url) { success, msg ->
-                if (success) {
-                    detail = Gson().fromJson(msg, Detail::class.java)?.data
-                    mainModel.detail.postValue(detail)
-                } else {
-                    Handler(Looper.getMainLooper()).post {
-                        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+        if (bvid == "") return
+        val url = "$BASE_URL$DETAIL?bvid=$bvid"
+        httpGet(url) { success, msg ->
+            if (success) {
+                detail = Gson().fromJson(msg, Detail::class.java)?.data
+                mainModel.detail.postValue(detail)
+                Handler(Looper.getMainLooper()).post {
+                    detail?.let {
+                        mBinding.tabLayout.getTabAt(1)?.text = "评论${it.view.stat.reply}"
                     }
+                }
+                initPlayerView()
+            } else {
+                Handler(Looper.getMainLooper()).post {
+                    Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
     private fun loadDanmaku() {
-        video?.let { video ->
-            val url = "https://comment.bilibili.com/${video.cid}.xml"
+        detail?.let { detail ->
+            val url = "https://comment.bilibili.com/${detail.view.cid}.xml"
             Log.d(TAG, "url: $url")
             httpXmlGet(url) { success, msg ->
                 if (success) {

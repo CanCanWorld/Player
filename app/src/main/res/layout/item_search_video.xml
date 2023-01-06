@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="101dp">
+    android:layout_height="121dp">
 
     <LinearLayout
         android:id="@+id/llDislike"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:layout_margin="10dp"
         android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="130dp"
-            android:layout_height="80dp">
+            android:layout_height="100dp">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivBlur"
@@ -89,8 +89,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivCover"
-            android:layout_width="130dp"
-            android:layout_height="80dp"
+            android:layout_width="160dp"
+            android:layout_height="100dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="@style/circle_img_10" />
@@ -130,7 +130,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginBottom="1dp"
             android:src="@drawable/ic_upzhu"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintBottom_toTopOf="@id/ivPlayNum"
             app:layout_constraintStart_toEndOf="@id/ivCover"
             app:tint="@color/_grey" />
 
@@ -153,7 +153,7 @@
             android:layout_marginStart="8dp"
             android:scaleType="fitXY"
             android:src="@drawable/ic_bofangshu"
-            app:layout_constraintBottom_toTopOf="@id/ivPlayNum"
+            app:layout_constraintBottom_toBottomOf="@id/ivCover"
             app:layout_constraintStart_toEndOf="@id/ivCover"
             app:tint="@color/_grey" />
 

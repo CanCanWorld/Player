@@ -11,7 +11,7 @@ import com.zrq.player.bean.RegionVideo
 import com.zrq.player.databinding.BottomVideoSettingBinding
 import com.zrq.player.utils.CalculationUtils
 
-class HideBottomDialog(
+class HomeBottomDialog(
     context: Context,
     private val activity: Activity,
     val bean: RegionVideo.DataBean.ArchivesBean,

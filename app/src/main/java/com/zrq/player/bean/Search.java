@@ -336,6 +336,8 @@ public class Search {
             private String rec_reason;
             private int danmaku;
             private Object biz_data;
+            private boolean dismiss = false;
+            private String banType = "";
 
             public String getType() {
                 return type;
@@ -639,6 +641,22 @@ public class Search {
 
             public void setBiz_data(Object biz_data) {
                 this.biz_data = biz_data;
+            }
+
+            public boolean isDismiss() {
+                return dismiss;
+            }
+
+            public void setDismiss(boolean dismiss) {
+                this.dismiss = dismiss;
+            }
+
+            public String getBanType() {
+                return banType;
+            }
+
+            public void setBanType(String banType) {
+                this.banType = banType;
             }
         }
     }

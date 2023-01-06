@@ -13,7 +13,6 @@ import com.zrq.player.R
 import com.zrq.player.adapter.RelatedAdapter
 import com.zrq.player.bean.Detail
 import com.zrq.player.bean.RelateDao
-import com.zrq.player.bean.Video
 import com.zrq.player.databinding.FragmentRelatedBinding
 import com.zrq.player.utils.CalculationUtils.formatNum
 import com.zrq.player.view.RelatedHideBottomDialog
@@ -27,25 +26,17 @@ class RelatedFragment : BaseFragment<FragmentRelatedBinding>() {
 
     private val list = mutableListOf<RelateDao>()
     private lateinit var adapter: RelatedAdapter
-    private var video: Video? = null
     private var detail: Detail.DataBean? = null
 
     @SuppressLint("NotifyDataSetChanged")
     override fun initData() {
 
-        video = mainModel.videos.peekFirst()
         adapter = RelatedAdapter(requireContext(), list, { _, position ->
-            val bean = list[position]
-            mainModel.videos.push(
-                Video(
-                    bean.title, bean.bvid, bean.cid, bean.pubdate, bean.pub_location,
-                    bean.stat.view, bean.stat.danmaku, bean.stat.reply, bean.stat.favorite, bean.stat.coin, bean.stat.share,
-                    bean.stat.now_rank, bean.stat.his_rank, bean.stat.like, bean.stat.dislike, bean.owner.name, bean.owner.face
-                )
-            )
+            Log.d(TAG, "initData: ${list[position]}")
+            mainModel.bvids.push(list[position].bvid)
             Navigation.findNavController(requireActivity(), R.id.fragment_container)
                 .navigate(R.id.playerFragment)
-        },{_,position->
+        }, { _, position ->
             val hideBottomDialog = RelatedHideBottomDialog(requireContext(), requireActivity(), list[position]) {
                 adapter.notifyItemChanged(position)
             }

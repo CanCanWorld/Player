@@ -37,4 +37,10 @@
     <string name="search">搜索</string>
     <string name="complete_list">完整榜单</string>
     <string name="bilibili_hot_search">bilibili热搜</string>
+    <string name="irrelevant">与搜索词无关</string>
+    <string name="search_feedback">搜索反馈</string>
+    <string name="poor_quality">看后发现质量差</string>
+    <string name="outdated_content">内容过时</string>
+    <string name="dont_watch">我不想看该视频</string>
+    <string name="share">分享</string>
 </resources>

@@ -15,8 +15,20 @@ object HttpUtil {
 
     private const val TAG = "HttpUtil"
 
+    private val mCookies = mutableListOf<Cookie>()
+
     private val okHttpClient by lazy {
         OkHttpClient.Builder()
+            .cookieJar(object : CookieJar {
+                override fun loadForRequest(url: HttpUrl): List<Cookie> {
+                    return mCookies
+                }
+
+                override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
+                    mCookies.clear()
+                    mCookies.addAll(cookies)
+                }
+            })
             .readTimeout(20000L, TimeUnit.MILLISECONDS)
             .connectTimeout(20000L, TimeUnit.MILLISECONDS)
             .build()

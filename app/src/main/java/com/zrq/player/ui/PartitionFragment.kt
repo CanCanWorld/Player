@@ -8,20 +8,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import com.zrq.player.R
 import com.zrq.player.adapter.HomeVideoAdapter
-import com.zrq.player.bean.Region
 import com.zrq.player.bean.RegionVideo
-import com.zrq.player.bean.Video
-import com.zrq.player.databinding.BottomVideoSettingBinding
 import com.zrq.player.databinding.FragmentPartitionBinding
 import com.zrq.player.utils.Constants
 import com.zrq.player.utils.Constants.BASE_URL
 import com.zrq.player.utils.Constants.REGION
 import com.zrq.player.utils.HttpUtil
-import com.zrq.player.view.HideBottomDialog
+import com.zrq.player.view.HomeBottomDialog
 
 class PartitionFragment(
     private val position: Int
@@ -40,21 +36,14 @@ class PartitionFragment(
     @SuppressLint("NotifyDataSetChanged")
     override fun initData() {
         adapter = HomeVideoAdapter(requireContext(), list, { _, position ->
-            val bean = list[position]
-            mainModel.videos.push(
-                Video(
-                    bean.title, bean.bvid, bean.cid, bean.pubdate, bean.pub_location,
-                    bean.stat.view, bean.stat.danmaku, bean.stat.reply, bean.stat.favorite, bean.stat.coin, bean.stat.share,
-                    bean.stat.now_rank, bean.stat.his_rank, bean.stat.like, bean.stat.dislike, bean.owner.name, bean.owner.face
-                )
-            )
+            mainModel.bvids.push(list[position].bvid)
             Navigation.findNavController(requireActivity(), R.id.fragment_container)
                 .navigate(R.id.playerFragment)
         }, { _, position ->
-            val hideBottomDialog = HideBottomDialog(requireContext(), requireActivity(), list[position]) {
+            val homeBottomDialog = HomeBottomDialog(requireContext(), requireActivity(), list[position]) {
                 adapter.notifyItemChanged(position)
             }
-            hideBottomDialog.show()
+            homeBottomDialog.show()
         })
         loadVideo()
         mBinding.apply {
