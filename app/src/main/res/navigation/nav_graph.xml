@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/bottomFragment">
 
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.zrq.player.ui.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/playerFragment"
         android:name="com.zrq.player.ui.PlayerFragment"
@@ -25,4 +20,9 @@
         android:name="com.zrq.player.ui.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/bottomFragment"
+        android:name="com.zrq.player.ui.BottomFragment"
+        android:label="fragment_bottom"
+        tools:layout="@layout/fragment_bottom" />
 </navigation>

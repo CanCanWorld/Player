@@ -11,25 +11,16 @@ import com.google.gson.Gson
 import com.zrq.player.adapter.DetailAdapter
 import com.zrq.player.bean.Detail
 import com.zrq.player.bean.PlayUrl
-import com.zrq.player.bean.Video
 import com.zrq.player.databinding.FragmentPlayerBinding
 import com.zrq.player.utils.Constants.BASE_URL
-import com.zrq.player.utils.Constants.DANMAKU
 import com.zrq.player.utils.Constants.DETAIL
 import com.zrq.player.utils.Constants.PLAY_URL
 import com.zrq.player.utils.HttpUtil.httpGet
-import com.zrq.player.utils.HttpUtil.httpGet2
 import com.zrq.player.utils.HttpUtil.httpXmlGet
-import com.zrq.player.view.PortraitWhenFullScreenController
-import org.xml.sax.InputSource
-import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserException
-import org.xmlpull.v1.XmlPullParserFactory
-import tv.danmaku.ijk.media.player.IjkMediaPlayer
+import com.zrq.player.view.video.MyGestureView
+import com.zrq.player.view.video.MyVodControlView
 import xyz.doikki.videocontroller.StandardVideoController
-import xyz.doikki.videoplayer.controller.GestureVideoController
-import xyz.doikki.videoplayer.ijk.IjkPlayerFactory
-import java.io.StringReader
+import xyz.doikki.videocontroller.component.*
 
 class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
     override fun providedViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentPlayerBinding {
@@ -59,11 +50,10 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
     override fun initEvent() {
 
         mainModel.onBackPress = {
-            if (mBinding.videoView.onBackPressed()) {
-            } else {
-                if (mainModel.bvids.size > 0)
-                    mainModel.bvids.pop()
-            }
+            val back = !mBinding.videoView.onBackPressed()
+            if (back && mainModel.bvids.size > 0)
+                mainModel.bvids.pop()
+            back
         }
     }
 
@@ -79,35 +69,24 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
 
                             Handler(Looper.getMainLooper()).post {
 
-                                Log.d(TAG, "width: ${videoView.videoSize[0]}")
-                                Log.d(TAG, "height: ${videoView.videoSize[1]}")
-
                                 var controller = StandardVideoController(requireContext())
-                                controller.addDefaultControlComponent(detail.view.title, false)
 
+                                controller.addControlComponent(CompleteView(requireContext()))
+                                controller.addControlComponent(ErrorView(requireContext()))
+                                val prepareView = PrepareView(requireContext())
+                                controller.addControlComponent(prepareView)
+                                prepareView.setClickStart()
+                                val titleView = TitleView(requireContext())
+                                titleView.setTitle(detail.view.title)
+                                controller.addControlComponent(titleView)
+                                controller.addControlComponent(MyGestureView(requireContext()))
+//                                controller.addControlComponent(MyVideoBottomBar(requireContext()))
+
+                                controller.addControlComponent(MyVodControlView(requireContext()))
+                                controller.setCanChangePosition(true)
                                 videoView.setVideoController(controller) //设置控制器
 
                                 videoView.start() //开始播放，不调用则不自动播放
-                                var width = videoView.videoSize[0]
-                                var height = videoView.videoSize[1]
-                                Thread {
-                                    while (videoView.videoSize[0] == 0) {
-                                        Thread.sleep(1000)
-                                    }
-                                    width = videoView.videoSize[0]
-                                    height = videoView.videoSize[1]
-                                    Log.d(TAG, "width: $width")
-                                    Log.d(TAG, "height: $height")
-                                    Handler(Looper.getMainLooper()).post {
-                                        controller = if (videoView.videoSize[0] > videoView.videoSize[1]) {
-                                            StandardVideoController(requireContext())
-                                        } else {
-                                            PortraitWhenFullScreenController(requireContext())
-                                        }
-                                        controller.addDefaultControlComponent(detail.view.title, false)
-                                        videoView.setVideoController(controller) //设置控制器
-                                    }
-                                }.start()
                             }
                         }
                     } else {

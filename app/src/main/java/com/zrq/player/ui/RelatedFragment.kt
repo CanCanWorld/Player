@@ -75,7 +75,7 @@ class RelatedFragment : BaseFragment<FragmentRelatedBinding>() {
                     .load(detail.card.card.face)
                     .into(ivFace)
                 tvName.text = detail.card.card.name
-                tvDetail.text = detail.card.follower.toString() + "粉丝   " + detail.card.archive_count + "视频"
+                tvDetail.text = formatNum(detail.card.follower) + "粉丝   " + formatNum(detail.card.archive_count) + "视频"
                 tvTitle.text = detail.view.title
                 tvPlayNum.text = formatNum(detail.view.stat.view)
                 tvDanMu.text = formatNum(detail.view.stat.danmaku)

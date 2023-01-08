@@ -1,9 +1,13 @@
 package com.zrq.player.utils
 
 import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.tencent.mmkv.MMKV
 import com.zrq.player.utils.Constants.BILIBILI
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -16,15 +20,29 @@ object HttpUtil {
     private const val TAG = "HttpUtil"
 
     private val mCookies = mutableListOf<Cookie>()
+    private val mmkv = MMKV.defaultMMKV()
+
+    data class Cookies(
+        var cookies: List<Cookie>
+    )
 
     private val okHttpClient by lazy {
         OkHttpClient.Builder()
             .cookieJar(object : CookieJar {
                 override fun loadForRequest(url: HttpUrl): List<Cookie> {
-                    return mCookies
+                    val cookies = mmkv.getString("cookies", "")
+                    val list = mutableListOf<Cookie>()
+                    val fromJson = Gson().fromJson(cookies, Cookies::class.java)
+                    fromJson?.cookies?.let {
+                        return fromJson.cookies
+                    }
+                    return mutableListOf()
                 }
 
                 override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
+                    val jsonStr = Gson().toJson(Cookies(cookies), object : TypeToken<Cookies>() {}.type)
+                    mmkv.putString("cookies", jsonStr)
+
                     mCookies.clear()
                     mCookies.addAll(cookies)
                 }

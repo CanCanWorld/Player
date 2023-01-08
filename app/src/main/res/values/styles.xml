@@ -32,4 +32,14 @@
         <item name="android:ellipsize">end</item>
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="bottom_bar_selected_text">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="footButton" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">?attr/mainColor</item>
+        <item name="android:textColorSecondary">@color/_grey</item>
+    </style>
+
 </resources>

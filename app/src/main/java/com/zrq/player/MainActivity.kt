@@ -35,12 +35,9 @@ class MainActivity : AppCompatActivity() {
         );
     }
 
-
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            mainModel.onBackPress()
-        }
-        return super.onKeyDown(keyCode, event)
+    override fun onBackPressed() {
+        if (mainModel.onBackPress())
+            super.onBackPressed()
     }
 
     companion object {

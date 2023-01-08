@@ -11,5 +11,5 @@ class MainModel : ViewModel() {
     val keyword = MutableLiveData<String>()
     val etText = MutableLiveData<String>()
     val bvids = LinkedList<String>()
-    var onBackPress: () -> Unit = {}
+    var onBackPress: () -> Boolean = { true }
 }

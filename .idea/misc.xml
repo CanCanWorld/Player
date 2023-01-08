@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/progress_bar.xml" value="0.199" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/seekbar_progress_bar.xml" value="0.292" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/seekbar_thumb.xml" value="0.292" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/select_bottom_icon.xml" value="0.3065" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/selector_full_screen_button.xml" value="0.292" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/shape_login_bg.xml" value="0.3065" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/bottom_login_register.xml" value="0.33697916666666666" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/bottom_related_video_setting.xml" value="0.33697916666666666" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/fragment_bottom.xml" value="0.33697916666666666" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/fragment_login.xml" value="0.3203125" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/fragment_my.xml" value="0.3203125" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/my_video_bottom_bar.xml" value="0.33" />
+        <entry key="..\:/Android_project_git/Player/app/src/main/res/menu/menu_bottom_bar.xml" value="0.33697916666666666" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_baseline_live_tv_24.xml" value="0.196" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_baseline_sentiment_satisfied_24.xml" value="0.1" />

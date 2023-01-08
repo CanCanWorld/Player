@@ -51,4 +51,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mBinding.etSearch.setText("")
+        mainModel.etText.postValue("")
+    }
+
 }
