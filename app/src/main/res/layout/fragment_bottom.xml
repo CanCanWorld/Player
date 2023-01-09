@@ -8,7 +8,7 @@
 
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container"
+        android:id="@+id/fragment_bottom_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -21,11 +21,13 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
         android:background="@color/white"
         android:theme="@style/footButton"
         app:itemHorizontalTranslationEnabled="false"
         app:itemIconSize="24dp"
+        app:itemPaddingBottom="6dp"
+        app:itemPaddingTop="4dp"
         app:itemTextAppearanceActive="@style/bottom_bar_selected_text"
         app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"

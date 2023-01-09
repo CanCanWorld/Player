@@ -10,4 +10,9 @@
         android:name="com.zrq.player.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/myFragment"
+        android:name="com.zrq.player.ui.MyFragment"
+        android:label="fragment_my"
+        tools:layout="@layout/fragment_my" />
 </navigation>

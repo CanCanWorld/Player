@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/_purple"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/ivClose"
             android:layout_width="46dp"
             android:layout_height="46dp"
             android:layout_alignParentStart="true"
@@ -55,7 +57,7 @@
 
     <LinearLayout
         android:layout_width="1000dp"
-        android:layout_height="match_parent"
+        android:layout_height="1000dp"
         android:background="@drawable/shape_login_bg">
 
     </LinearLayout>
