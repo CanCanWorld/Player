@@ -1,22 +1,20 @@
 package com.zrq.player.view
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.zrq.player.R
+import com.zrq.player.adapter.LoginAdapter
 import com.zrq.player.databinding.BottomLoginRegisterBinding
 import com.zrq.player.utils.CalculationUtils
 
 class LoginBottomDialog(
     context: Context,
-    private val activity: Activity,
+    private val activity: FragmentActivity,
 ) : BottomSheetDialog(context, R.style.BottomSheetDialogBg) {
-
-    private lateinit var mBinding: BottomLoginRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +34,14 @@ class LoginBottomDialog(
         initEvent()
     }
 
+    private lateinit var mBinding: BottomLoginRegisterBinding
+    private lateinit var adapter: LoginAdapter
+
     @SuppressLint("SetTextI18n")
     private fun initData() {
+        adapter = LoginAdapter(activity)
         mBinding.apply {
+            viewPager2.adapter = adapter
         }
     }
 

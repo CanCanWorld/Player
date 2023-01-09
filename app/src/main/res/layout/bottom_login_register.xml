@@ -55,11 +55,16 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="1000dp"
-        android:layout_height="1000dp"
+        android:layout_height="match_parent"
         android:background="@drawable/shape_login_bg">
 
-    </LinearLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
 
 </LinearLayout>

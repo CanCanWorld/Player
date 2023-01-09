@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.zrq.player.R
 import com.zrq.player.databinding.FragmentMyBinding
+import com.zrq.player.utils.CalculationUtils
 import com.zrq.player.view.LoginBottomDialog
 
 class MyFragment : BaseFragment<FragmentMyBinding>() {
@@ -28,7 +29,7 @@ class MyFragment : BaseFragment<FragmentMyBinding>() {
                 loginBottomDialog.show()
                 loginBottomDialog.behavior.apply {
                     state = BottomSheetBehavior.STATE_EXPANDED
-                    peekHeight = 3000
+                    peekHeight = CalculationUtils.getWindowHeight(requireActivity())
                 }
             }
         }
