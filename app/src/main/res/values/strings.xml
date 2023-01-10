@@ -46,6 +46,11 @@
     <string name="split">/</string>
     <string name="home">主页</string>
     <string name="my">我的</string>
-    <string name="to_login">去登陆</string>
+    <string name="to_login">去登录</string>
     <string name="welcome_use">欢迎使用</string>
+    <string name="to_register">去注册</string>
+    <string name="input_username">请输入用户名</string>
+    <string name="input_password">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="app_zrq">本APP由ZRQ独立开发</string>
 </resources>

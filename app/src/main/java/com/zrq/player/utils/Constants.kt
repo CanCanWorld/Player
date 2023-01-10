@@ -31,6 +31,10 @@ object Constants {
     //?search_type=video&keyword=初音&page=1
     const val SEARCH = "/web-interface/search/type"
 
+    const val PAGE_LOGIN = 0
+
+    const val PAGE_REGISTER = 1
+
     private var regions = arrayListOf(
         Region("动画", 1, R.drawable.ic_douga),
         Region("番剧", 13, R.drawable.ic_anime),

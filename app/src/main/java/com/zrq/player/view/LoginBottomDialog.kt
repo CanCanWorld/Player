@@ -27,9 +27,15 @@ class LoginBottomDialog(
                 lp.width = CalculationUtils.getWindowWidth(activity)
                 lp.height = CalculationUtils.getWindowHeight(activity)
                 window!!.attributes = lp
-                setCanceledOnTouchOutside(false)
             }
         }
+        val layoutParams = mBinding.root.layoutParams
+        layoutParams.width = CalculationUtils.getWindowWidth(activity)
+        layoutParams.height = CalculationUtils.getWindowHeight(activity)
+        mBinding.root.layoutParams = layoutParams
+
+        setCanceledOnTouchOutside(false)
+
         initData()
         initEvent()
     }
@@ -39,7 +45,9 @@ class LoginBottomDialog(
 
     @SuppressLint("SetTextI18n")
     private fun initData() {
-        adapter = LoginAdapter(activity)
+        adapter = LoginAdapter(activity) {
+            mBinding.viewPager2.currentItem = it
+        }
         mBinding.apply {
             viewPager2.adapter = adapter
         }

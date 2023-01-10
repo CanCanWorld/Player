@@ -3,22 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/progress_bar.xml" value="0.199" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/seekbar_progress_bar.xml" value="0.292" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/seekbar_thumb.xml" value="0.292" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/select_bottom_icon.xml" value="0.3065" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/selector_full_screen_button.xml" value="0.292" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/drawable/shape_login_bg.xml" value="0.3065" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/bottom_login_register.xml" value="0.33697916666666666" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/bottom_related_video_setting.xml" value="0.33697916666666666" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/bottom_video_setting.xml" value="0.33697916666666666" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/fragment_bottom.xml" value="0.33697916666666666" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/fragment_login.xml" value="0.3203125" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/fragment_my.xml" value="0.3203125" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/layout/my_video_bottom_bar.xml" value="0.33" />
-        <entry key="..\:/Android_project_git/Player/app/src/main/res/menu/menu_bottom_bar.xml" value="0.33697916666666666" />
+        <entry key="..\:/Users/smq/.gradle/caches/transforms-3/bda465c7648e64e0b09f6532a3851b3f/transformed/jetified-dkplayer-ui-3.3.7/res/drawable/dkplayer_seekbar_thumb.xml" value="0.2075" />
+        <entry key="..\:/Users/smq/.gradle/caches/transforms-3/bda465c7648e64e0b09f6532a3851b3f/transformed/jetified-dkplayer-ui-3.3.7/res/drawable/dkplayer_seekbar_thumb_normal.xml" value="0.2075" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_baseline_live_tv_24.xml" value="0.196" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_baseline_sentiment_satisfied_24.xml" value="0.1" />
@@ -26,18 +12,26 @@
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_outline_markunread_24.xml" value="0.196" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_outline_mode_comment_24.xml" value="0.1" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/ic_outline_thumb_down_24.xml" value="0.1" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/select_btn_login.xml" value="0.1435" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_et_search.xml" value="0.1155" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_login_enable.xml" value="0.1025" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_login_unEnable.xml" value="0.1025" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_login_un_enable.xml" value="0.1025" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_setting.xml" value="0.141" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/drawable/shape_tv_up.xml" value="0.196" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout-v28/fragment_login.xml" value="0.415625" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/bottom_login_register.xml" value="0.18" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/bottom_related_video_setting.xml" value="0.2" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/bottom_search_video_setting.xml" value="0.1" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/bottom_video_setting.xml" value="0.13924050632911392" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_comment.xml" value="0.2565217391304348" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_partition.xml" value="0.18" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_player.xml" value="0.22" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_region_item.xml" value="0.22" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_related.xml" value="0.15" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Player/app/src/main/res/layout/fragment_search_detail.xml" value="0.22" />

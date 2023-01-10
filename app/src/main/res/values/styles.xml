@@ -46,7 +46,14 @@
         <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
+
     <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="MyEditText">
+        <item name="colorControlNormal">@color/grey</item>
+        <item name="colorControlActivated">?attr/mainColor</item>
+        <item name="android:textCursorDrawable">?attr/mainColor</item>
     </style>
 </resources>
