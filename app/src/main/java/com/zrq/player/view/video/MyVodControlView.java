@@ -25,6 +25,9 @@ import androidx.annotation.Nullable;
 
 import com.zrq.player.R;
 
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
 import xyz.doikki.videoplayer.controller.ControlWrapper;
 import xyz.doikki.videoplayer.controller.IControlComponent;
 import xyz.doikki.videoplayer.player.VideoView;
@@ -51,6 +54,12 @@ public class MyVodControlView extends FrameLayout implements IControlComponent, 
     private boolean mIsDragging;
 
     private boolean mIsShowBottomProgress = true;
+
+    private Function2<Integer, Boolean, Unit> onProgressChange;
+
+    public void setOnProgressChange(Function2<Integer, Boolean, Unit> onProgressChange) {
+        this.onProgressChange = onProgressChange;
+    }
 
     public MyVodControlView(@NonNull Context context) {
         super(context);
@@ -308,6 +317,9 @@ public class MyVodControlView extends FrameLayout implements IControlComponent, 
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        Log.d(TAG, "progress: " + progress + "fromUser: " + fromUser);
+        if (onProgressChange != null)
+            onProgressChange.invoke(progress * 100, fromUser);
         if (!fromUser) {
             return;
         }

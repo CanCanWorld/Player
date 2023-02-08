@@ -6,14 +6,14 @@ import com.google.gson.reflect.TypeToken
 import com.tencent.mmkv.MMKV
 import com.zrq.player.utils.Constants.BILIBILI
 import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStreamReader
+import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.TimeUnit
+import java.util.zip.Inflater
+import java.util.zip.InflaterInputStream
+import java.util.zip.InflaterOutputStream
+
 
 object HttpUtil {
 
@@ -74,17 +74,12 @@ object HttpUtil {
         })
     }
 
-    fun httpGet2(url: String, callback: (Boolean, String) -> Unit) {
+    fun httpPost(url: String, callback: (Boolean, String) -> Unit) {
         Log.d(TAG, "load: $url")
+        val formBody: FormBody = FormBody.Builder().build()
         val request = Request.Builder()
             .url(url)
-            .get()
-            .addHeader("Accept", "*/*")
-            .addHeader("Cache-Control", "no-cache")
-            .addHeader("Content-type", "application/xml;charset=utf-8")
-            .addHeader("Accept-Encoding", "deflate")
-            .addHeader("Connection", "keep-alive")
-            .addHeader("Transfer-Encoding", "chunked")
+            .post(formBody)
             .build()
         val call = okHttpClient.newCall(request)
         call.enqueue(object : Callback {
@@ -111,14 +106,15 @@ object HttpUtil {
             connection.doInput = true
             connection.useCaches = false
             connection.requestMethod = "GET"
-            connection.setRequestProperty("Content-Encoding", "deflate")
-            connection.setRequestProperty("Accept-Encoding", "gzip, deflate, br")
             connection.instanceFollowRedirects = false
             connection.connect()
-            val inputStream = connection.inputStream
-            Log.d(TAG, "responseCode: ${connection.responseCode}")
+
+            var inputStream = connection.inputStream
+            inputStream = BufferedInputStream(inputStream)
+            inputStream = InflaterInputStream(inputStream, Inflater(true))
 
             val reader = BufferedReader(InputStreamReader(inputStream, "UTF-8"))
+
             val buffer = StringBuffer()
             var line: String? = ""
             while (reader.readLine().also { line = it } != null) {
@@ -126,6 +122,7 @@ object HttpUtil {
             }
             Log.d(TAG, "httpXmlGet: $buffer")
             callback(true, buffer.toString())
+
         }.start()
     }
 

@@ -34,44 +34,55 @@
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         app:boxBackgroundColor="@color/_purple"
-        android:layout_marginTop="20dp">
+        app:hintTextColor="@color/_purple">
 
         <EditText
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/input_username"
+            android:text="17860487013"
             android:textSize="16sp"
             android:theme="@style/MyEditText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        app:hintTextColor="@color/_purple">
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/input_password"
+            android:hint="@string/input_msg"
             android:textSize="16sp"
             android:theme="@style/MyEditText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/btnSendMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_msg" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/select_btn_login"
-        android:enabled="false"
         android:padding="15dp"
         android:text="@string/login"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:backgroundTint="@color/_purple"
+        app:cornerRadius="50dp" />
 
 </LinearLayout>

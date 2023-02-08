@@ -53,4 +53,6 @@
     <string name="input_password">请输入密码</string>
     <string name="login">登录</string>
     <string name="app_zrq">本APP由ZRQ独立开发</string>
+    <string name="send_msg">获取验证码</string>
+    <string name="input_msg">请输入验证码</string>
 </resources>

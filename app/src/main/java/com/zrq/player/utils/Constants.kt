@@ -22,7 +22,7 @@ object Constants {
 
     const val REPLY = "/v2/reply"
 
-    const val DANMAKU = "/v1/dm/list.so"
+    const val DANMAKU = "/v1/dm/list.so?oid="
 
     const val BILIBILI = "https://bilibili.com"
 
@@ -34,6 +34,14 @@ object Constants {
     const val PAGE_LOGIN = 0
 
     const val PAGE_REGISTER = 1
+
+    const val REQUEST_CAPTCHA = "http://passport.bilibili.com/x/passport-login/captcha?source=main_web"
+
+    const val LOGIN = "http://passport.bilibili.com/x/passport-login/web/login"
+
+    const val GET_KEY = "https://passport.bilibili.com/x/passport-login/web/key"
+
+    const val SEND_MSG = "http://passport.bilibili.com/x/passport-login/web/sms/send"
 
     private var regions = arrayListOf(
         Region("动画", 1, R.drawable.ic_douga),
