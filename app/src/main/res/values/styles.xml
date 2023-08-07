@@ -38,7 +38,6 @@
     </style>
 
     <style name="footButton" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">?attr/mainColor</item>
         <item name="android:textColorSecondary">@color/_grey</item>
     </style>
     <!--实现BottomSheetDialog圆角效果 且无背景阴影-->

@@ -85,6 +85,7 @@
             app:tabIndicatorHeight="4dp"
             app:tabMaxWidth="100dp"
             app:tabMinWidth="60dp"
+            app:tabBackground="?attr/mainColor"
             app:tabMode="scrollable"
             app:tabRippleColor="@color/white"
             app:tabSelectedTextColor="@color/white"
